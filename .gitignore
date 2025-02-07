@@ -1,0 +1,19 @@
+# Sensitive files
+.env
+.env.*
+!.env.example
+credentials.json
+secrets.json
+
+# Salary and HR sensitive data
+**/salary.json
+**/salary.md
+**/salary.backup.json
+**/salary.*.json
+!src/salary.example.json
+docs/hr/salary/
+**/payroll.*
+**/compensation.*
+
+# Backup files
+*.backup.* 

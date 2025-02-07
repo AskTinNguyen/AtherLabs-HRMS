@@ -10,16 +10,21 @@ const SENSITIVE_PATTERNS = [
   /^\.env\..+$/i,
   /credentials\.json$/i,
   /secrets\.json$/i,
-  // Salary-specific patterns that exclude .tsx files
-  /salary\.(json|md|ya?ml)$/i,
-  /salary\.backup\.json$/i,
-  /.*salary.*\.(json|md|ya?ml)$/i,
+  // Enhanced salary-specific patterns
+  /salary\.(json|md|ya?ml|csv|xlsx?)$/i,
+  /salary\.backup\.(json|md|ya?ml|csv|xlsx?)$/i,
+  /.*salary.*\.(json|md|ya?ml|csv|xlsx?)$/i,
+  /payroll.*\.(json|md|ya?ml|csv|xlsx?)$/i,
+  /compensation.*\.(json|md|ya?ml|csv|xlsx?)$/i,
+  // Add pattern for HR sensitive files
+  /hr\/.*\/(salary|compensation|payroll).*\.(json|md|ya?ml|csv|xlsx?)$/i,
 ];
 
 // Files that are allowed to be committed (e.g., example files)
 const ALLOWED_FILES = [
   'src/salary.example.json',
   '.env.example',
+  'docs/hr/RECRUITMENT.md', // Allow recruitment doc but not salary data
   // Add more allowed files as needed
 ];
 
