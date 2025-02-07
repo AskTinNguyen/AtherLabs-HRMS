@@ -26,6 +26,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { DemoModeToggle } from '../common/DemoModeToggle';
 import { ChatSettings, ModelProvider } from '../chat/types';
 import { Employee } from '../../types/salary';
+import { supabase } from '../../lib/supabase';
 
 interface DataStatus {
   hasRealData: boolean;
@@ -250,15 +251,39 @@ export default function Settings({
         }
       }
 
-      const response = await fetch('/api/upload-data', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
+      // Clear existing data first
+      const { error: deleteError } = await supabase
+        .from('employees')
+        .delete()
+        .neq('id', 0); // Delete all rows
 
-      const result = await response.json();
-      if (!result.success) {
-        throw new Error(result.error || 'Failed to upload data');
+      if (deleteError) {
+        throw new Error(`Failed to clear existing data: ${deleteError.message}`);
+      }
+
+      // Insert new data in batches
+      const batchSize = 50;
+      for (let i = 0; i < data.employees.length; i += batchSize) {
+        const batch = data.employees.slice(i, i + batchSize);
+        
+        const { error: insertError } = await supabase
+          .from('employees')
+          .insert(
+            batch.map(emp => ({
+              name: emp.name,
+              position: emp.position,
+              specialty: emp.specialty,
+              department: emp.department,
+              division: emp.division,
+              salary: emp.salary,
+              termination_month: emp.termination_month,
+              is_leadership: emp.isLeadership
+            }))
+          );
+
+        if (insertError) {
+          throw new Error(`Failed to insert batch ${Math.floor(i / batchSize) + 1}: ${insertError.message}`);
+        }
       }
 
       // Show success message
