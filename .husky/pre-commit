@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+node scripts/check-sensitive-files.cjs || exit 1 

@@ -1,0 +1,60 @@
+{
+    "positions": [
+        {
+            "id": "pos_001",
+            "title": "Senior Software Engineer",
+            "department": "Engineering",
+            "division": "Product",
+            "baseSalary": 120000,
+            "budgetImpact": 144000,
+            "status": "in-progress",
+            "approvalStatus": "approved",
+            "createdAt": "2024-03-15T00:00:00.000Z",
+            "updatedAt": "2024-03-15T00:00:00.000Z"
+        }
+    ],
+    "newHires": [
+        {
+            "id": "nh_001",
+            "candidateName": "John Smith",
+            "positionId": "pos_001",
+            "onboardingStatus": "in-progress",
+            "startDate": "2024-04-01T00:00:00.000Z",
+            "probationEndDate": "2024-07-01T00:00:00.000Z",
+            "salary": 120000,
+            "department": "Engineering",
+            "division": "Product"
+        }
+    ],
+    "onboardingTasks": [
+        {
+            "id": "task_001",
+            "newHireId": "nh_001",
+            "title": "Complete HR Documentation",
+            "description": "Fill out all required HR forms and submit necessary documents",
+            "status": "completed",
+            "dueDate": "2024-03-25T00:00:00.000Z",
+            "completedDate": "2024-03-24T00:00:00.000Z"
+        },
+        {
+            "id": "task_002",
+            "newHireId": "nh_001",
+            "title": "IT Setup",
+            "description": "Setup company email, access cards, and development environment",
+            "status": "in-progress",
+            "dueDate": "2024-03-30T00:00:00.000Z"
+        }
+    ],
+    "approvals": [
+        {
+            "id": "appr_001",
+            "positionId": "pos_001",
+            "approverId": "user_001",
+            "approverName": "Jane Doe",
+            "status": "approved",
+            "comments": "Budget approved for Q2 2024",
+            "createdAt": "2024-03-14T00:00:00.000Z",
+            "updatedAt": "2024-03-15T00:00:00.000Z"
+        }
+    ]
+} 

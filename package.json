@@ -1,0 +1,79 @@
+{
+  "name": "hr-salary-management",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "proxy": "http://localhost:3001",
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@google/generative-ai": "^0.21.0",
+    "@mui/icons-material": "^5.16.14",
+    "@mui/material": "^5.16.14",
+    "@mui/x-date-pickers": "^7.25.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^16.18.70",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "dayjs": "^1.11.13",
+    "express": "^4.21.2",
+    "openai": "^4.83.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "recharts": "^2.10.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5",
+    "uuid": "^11.0.5"
+  },
+  "scripts": {
+    "start": "PORT=3000 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "NODE_OPTIONS='--loader ts-node/esm' ts-node --esm src/server/index.ts",
+    "dev": "concurrently \"npm run start\" \"npm run server\"",
+    "postinstall": "husky install",
+    "check-sensitive": "node scripts/check-sensitive-files.cjs"
+  },
+  "lint-staged": {
+    "**/*": "npm run check-sensitive"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.7",
+    "@babel/preset-typescript": "^7.26.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/jest": "^29.5.14",
+    "@types/jsdom": "^21.1.7",
+    "@types/node-fetch": "^2.6.12",
+    "@types/recharts": "^1.8.29",
+    "@types/uuid": "^10.0.0",
+    "concurrently": "^9.1.2",
+    "husky": "^9.0.11",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^26.0.0",
+    "lint-staged": "^15.2.2",
+    "node-fetch": "^3.3.2",
+    "ts-jest": "^29.2.5"
+  }
+}
