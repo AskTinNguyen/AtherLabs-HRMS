@@ -229,3 +229,23 @@ The backend server provides the following API endpoints:
 ## License
 
 This project is licensed to Ather Labs.
+
+## ⚠️ Important: Handling Sensitive Data
+
+This repository is configured to prevent accidental commits of sensitive data:
+
+- Never commit real salary or HR data
+- Use example files for development
+- Run `./scripts/switch-data.sh example` before committing
+- Check `.gitignore` and `scripts/check-sensitive-files.cjs` for protected patterns
+
+### Setting Up Development Data
+
+1. Copy the example file:
+   ```bash
+   cp src/salary.example.json src/salary.json
+   ```
+
+2. Update with your development data following the same structure
+
+3. Never commit the actual salary.json file

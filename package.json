@@ -11,11 +11,13 @@
     "@mui/icons-material": "^5.16.14",
     "@mui/material": "^5.16.14",
     "@mui/x-date-pickers": "^7.25.0",
+    "@supabase/supabase-js": "^2.39.3",
     "@types/express": "^4.17.21",
     "@types/node": "^16.18.70",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "openai": "^4.83.0",
     "react": "^18.2.0",
@@ -34,7 +36,13 @@
     "server": "NODE_OPTIONS='--loader ts-node/esm' ts-node --esm src/server/index.ts",
     "dev": "concurrently \"npm run start\" \"npm run server\"",
     "postinstall": "husky install",
-    "check-sensitive": "node scripts/check-sensitive-files.cjs"
+    "check-sensitive": "node scripts/check-sensitive-files.cjs",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "supabase:status": "supabase status",
+    "db:reset": "supabase db reset",
+    "db:push": "supabase db push",
+    "migrate": "NODE_OPTIONS='--loader ts-node/esm' ts-node --esm scripts/migrate-to-supabase.ts"
   },
   "lint-staged": {
     "**/*": "npm run check-sensitive"
@@ -74,6 +82,7 @@
     "jsdom": "^26.0.0",
     "lint-staged": "^15.2.2",
     "node-fetch": "^3.3.2",
+    "supabase": "^1.136.3",
     "ts-jest": "^29.2.5"
   }
 }

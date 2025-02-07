@@ -1,0 +1,59 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "position": "Senior Software Engineer",
+      "specialty": "Backend Development",
+      "department": "Engineering",
+      "division": "Technology",
+      "salary": 120000.00,
+      "termination_month": null,
+      "isLeadership": true
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "position": "Product Manager",
+      "specialty": "Product Strategy",
+      "department": "Product",
+      "division": "Technology",
+      "salary": 110000.00,
+      "termination_month": null,
+      "isLeadership": true
+    },
+    {
+      "id": 3,
+      "name": "Mike Johnson",
+      "position": "Software Engineer",
+      "specialty": "Frontend Development",
+      "department": "Engineering",
+      "division": "Technology",
+      "salary": 95000.00,
+      "termination_month": null,
+      "isLeadership": false
+    },
+    {
+      "id": 4,
+      "name": "Sarah Wilson",
+      "position": "HR Manager",
+      "specialty": "Employee Relations",
+      "department": "Human Resources",
+      "division": "Operations",
+      "salary": 85000.00,
+      "termination_month": null,
+      "isLeadership": true
+    },
+    {
+      "id": 5,
+      "name": "David Brown",
+      "position": "Software Engineer",
+      "specialty": "Mobile Development",
+      "department": "Engineering",
+      "division": "Technology",
+      "salary": 90000.00,
+      "termination_month": 6,
+      "isLeadership": false
+    }
+  ]
+} 
