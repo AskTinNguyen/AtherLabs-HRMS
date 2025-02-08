@@ -30,6 +30,9 @@ docs/hr/salary/
 # Backup files
 *.backup.*
 
+# Generated files
+repomix-output.txt
+
 # Misc
 .DS_Store
 .env.local
