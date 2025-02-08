@@ -18,6 +18,8 @@ const SENSITIVE_PATTERNS = [
   /compensation.*\.(json|md|ya?ml|csv|xlsx?)$/i,
   // Add pattern for HR sensitive files
   /hr\/.*\/(salary|compensation|payroll).*\.(json|md|ya?ml|csv|xlsx?)$/i,
+  // Add pattern for any file containing salary data
+  /.*salaries?.*\.(json|md|ya?ml|csv|xlsx?)$/i,
 ];
 
 // Files that are allowed to be committed (e.g., example files)

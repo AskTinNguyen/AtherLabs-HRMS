@@ -1,22 +1,34 @@
-# HR Salary Management System
+# HR Management System (HRMS)
 
-A comprehensive HR salary management application built with React, TypeScript, and Material-UI that provides detailed salary analytics, employee management, and data visualization capabilities.
+A comprehensive HR management system built with React, TypeScript, and Material-UI that provides detailed salary analytics, employee management, recruitment tracking, and AI-powered insights.
 
 ## Features
 
-- 📊 Interactive Salary Dashboard
-- 👥 Employee Management
+- 📊 Interactive Dashboards
+  - Salary Analytics
+  - Recruitment Metrics
+  - Organizational Structure Analysis
+  - Custom Dashboard Views
+- 👥 Employee & User Management
 - 📈 Multiple Data Visualization Charts
+- 🎯 Complete Recruitment Pipeline
+  - Position Management
+  - New Hires Tracking
+  - Onboarding Process
+- 🔐 Role-based Authentication
 - 🌓 Dark/Light Theme Support
 - 💬 AI-Powered ChatBot Assistant
 - 📱 Responsive Design
 - 💾 Automatic Data Persistence
+- 🎮 Demo Mode for Testing
 
 ## Tech Stack
 
 - **Frontend:**
   - TypeScript
+  - React
   - Material-UI (MUI) v5
+  - TailwindCSS
   - Recharts for data visualization
   - Day.js for date handling
 
@@ -24,83 +36,147 @@ A comprehensive HR salary management application built with React, TypeScript, a
   - Express.js
   - Node.js
   - TypeScript
-
+  - Supabase (Database & Authentication)
 
 ## Project Structure
 
 ```
 src/
 ├── components/
+│   ├── admin/
+│   │   └── UserManagement.tsx
+│   ├── auth/
+│   │   └── LoginPage.tsx
 │   ├── chat/
 │   │   ├── ChatBot.tsx
 │   │   ├── ChatDialog.tsx
-│   │   └── SettingsDialog.tsx
-│   ├── DivisionSalaryChart.tsx
-│   ├── SalaryChart.tsx
-│   ├── SalaryDashboard.tsx
-│   ├── SalaryMonthlyChart.tsx
-│   ├── SalaryRangeChart.tsx
-│   ├── SalaryTable.tsx
-│   ├── SubDepartmentSalaryChart.tsx
-│   └── TerminationImpactChart.tsx
+│   │   ├── ChatMessageItem.tsx
+│   │   ├── FloatingAIButton.tsx
+│   │   ├── SettingsDialog.tsx
+│   │   └── types.ts
+│   ├── common/
+│   │   ├── DemoModeToggle.tsx
+│   │   └── Sidebar.tsx
+│   ├── dashboard/
+│   │   ├── AIDashboard.tsx
+│   │   ├── CustomDashboardView.tsx
+│   │   └── OrganizationalStructureAnalysis.tsx
+│   ├── recruitment/
+│   │   ├── NewHiresTable.tsx
+│   │   ├── OnboardingBoard.tsx
+│   │   ├── PositionsTable.tsx
+│   │   ├── RecruitmentDashboard.tsx
+│   │   └── RecruitmentMetrics.tsx
+│   ├── settings/
+│   │   └── Settings.tsx
+│   └── salary/
+│       ├── DivisionSalaryChart.tsx
+│       ├── SalaryChart.tsx
+│       ├── SalaryDashboard.tsx
+│       ├── SalaryMonthlyChart.tsx
+│       ├── SalaryRangeChart.tsx
+│       ├── SalaryTable.tsx
+│       ├── SubDepartmentSalaryChart.tsx
+│       └── TerminationImpactChart.tsx
+├── context/
+│   └── DemoModeContext.tsx
+├── lib/
+│   ├── auth.ts
+│   └── supabase.ts
 ├── server/
 │   ├── api.ts
 │   └── index.ts
 ├── services/
 │   ├── ai.ts
+│   ├── dashboardService.ts
+│   ├── employeeService.ts
+│   ├── recruitmentService.ts
 │   └── salaryService.ts
 ├── types/
-│   └── salary.ts
+│   ├── dashboard.ts
+│   ├── recruitment.ts
+│   ├── salary.ts
+│   ├── supabase.ts
+│   └── uuid.d.ts
+├── utils/
+│   └── demoDataTransform.ts
 ├── App.tsx
 └── index.tsx
 ```
 
 ## Component Overview
 
-### Main Components
+### Core Features
 
-1. **SalaryDashboard (`SalaryDashboard.tsx`)**
-   - Main dashboard component displaying key metrics
-   - Includes total monthly salary, projected salary, and yearly calculations
-   - Houses multiple visualization tabs
+1. **Authentication (`auth/LoginPage.tsx`)**
+   - Secure login/logout functionality
+   - Role-based access control
+   - Integration with Supabase auth
 
-2. **SalaryTable (`SalaryTable.tsx`)**
-   - Interactive employee data grid
-   - CRUD operations for employee management
-   - Sorting, filtering, and pagination capabilities
+2. **User Management (`admin/UserManagement.tsx`)**
+   - User role management
+   - Access control
+   - User profile management
 
-3. **ChatBot (`chat/ChatBot.tsx`)**
-   - AI-powered assistant for HR queries
-   - Integrated with Google's Generative AI
-   - Custom chat interface
+3. **Salary Dashboard (`salary/SalaryDashboard.tsx`)**
+   - Key salary metrics
+   - Department-wise breakdown
+   - Yearly projections
+   - Tax calculations
 
-### Visualization Components
+4. **Recruitment System**
+   - Position tracking (`recruitment/PositionsTable.tsx`)
+   - New hire management (`recruitment/NewHiresTable.tsx`)
+   - Onboarding workflow (`recruitment/OnboardingBoard.tsx`)
+   - Recruitment metrics (`recruitment/RecruitmentMetrics.tsx`)
 
-1. **SalaryChart (`SalaryChart.tsx`)**
-   - Bar chart showing salary distribution across departments
-   - Displays min, max, and average salaries
+5. **AI Dashboard (`dashboard/AIDashboard.tsx`)**
+   - AI-powered insights
+   - Custom dashboard views
+   - Organizational analysis
 
-2. **DivisionSalaryChart (`DivisionSalaryChart.tsx`)**
-   - Pie chart visualization of salary distribution by division
-   - Interactive tooltips with detailed information
+6. **ChatBot System**
+   - AI-powered assistant (`chat/ChatBot.tsx`)
+   - Floating chat interface (`chat/FloatingAIButton.tsx`)
+   - Message history (`chat/ChatMessageItem.tsx`)
 
-3. **SalaryMonthlyChart (`SalaryMonthlyChart.tsx`)**
-   - Tracks monthly salary trends
-   - Historical salary data visualization
+### Settings & Configuration
 
-4. **SubDepartmentSalaryChart (`SubDepartmentSalaryChart.tsx`)**
-   - Scatter plot of sub-department salary distributions
-   - Employee count and average salary analysis
+1. **Settings Management (`settings/Settings.tsx`)**
+   - Application configuration
+   - User preferences
+   - System settings
 
-5. **TerminationImpactChart (`TerminationImpactChart.tsx`)**
-   - Analyzes impact of employee terminations
-   - Forecasts salary changes
+2. **Demo Mode (`common/DemoModeToggle.tsx`)**
+   - Toggle between demo and production data
+   - Safe testing environment
+
+## AI Features
+
+1. **AI Dashboard Generation**
+   - Automatic insights generation
+   - Custom dashboard recommendations
+   - Organizational structure analysis
+   - Performance metrics visualization
+
+2. **AI-Powered Chat Assistant**
+   - Natural language query processing
+   - HR policy assistance
+   - Employee data analysis
+   - Recruitment recommendations
+
+3. **AI Data Filtering**
+   - Smart data categorization
+   - Automated report generation
+   - Pattern recognition
+   - Anomaly detection
 
 ## Setup and Installation
 
 1. **Prerequisites**
    - Node.js (v16 or higher)
    - npm or yarn
+   - Supabase CLI
 
 2. **Installation**
    ```bash
@@ -110,16 +186,26 @@ src/
    # Install dependencies
    npm install
 
-   # Setup data file
-   cp src/salary.example.json src/salary.json
-   # Edit src/salary.json with your actual salary data
-
    # Setup environment variables
    cp .env.example .env
    # Edit .env with your actual configuration
+
+   # Setup Supabase
+   supabase init
+   supabase start
    ```
 
-3. **Running the Application**
+3. **Database Setup**
+   ```bash
+   # Run migrations
+   cd supabase
+   supabase db push
+
+   # Seed demo data (optional)
+   npm run seed:demo
+   ```
+
+4. **Running the Application**
    ```bash
    # Start both frontend and backend in development mode
    npm run dev
@@ -137,77 +223,42 @@ src/
 
 ## Environment Configuration
 
-Create a `.env` file in the root directory by copying `.env.example` and updating the values:
+Create a `.env` file in the root directory with:
 ```
 PORT=3001
-GOOGLE_API_KEY=your_google_api_key  # Required for ChatBot functionality
+GOOGLE_API_KEY=your_google_api_key
+SUPABASE_URL=your_supabase_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 ```
 
-## Data Configuration
+## Database Setup (Supabase)
 
-The application requires a `salary.json` file in the `src` directory to function. For security reasons, this file is not included in the repository.
-
-1. Copy the example file:
+1. Create a Supabase project
+2. Run migrations:
    ```bash
-   cp src/salary.example.json src/salary.json
+   cd supabase
+   supabase db push
    ```
+3. Initial migrations are in:
+   - `supabase/migrations/20240207_initial_schema.sql`
+   - `supabase/migrations/20240208_user_roles.sql`
 
-2. Update `src/salary.json` with your actual salary data following the same structure as the example file.
+## Testing
 
-3. Make sure not to commit your actual salary data to the repository.
+The project includes comprehensive test coverage:
 
-### Switching Between Real and Example Data
+- Unit tests for services and components
+- Integration tests for dashboard generation
+- AI filtering tests
+- Test documentation available in `services/__tests__/docs/`
 
-The repository includes a script to easily switch between real and example salary data. This is useful when:
-- You want to test the application with example data
-- You're preparing to commit changes (switch to example data)
-- You're ready to resume work with real data
-
-To use the script:
-
-1. Switch to example data (automatically backs up your real data):
-   ```bash
-   ./scripts/switch-data.sh example
-   ```
-
-2. Switch back to real data:
-   ```bash
-   ./scripts/switch-data.sh real
-   ```
-
-The script will:
-- Safely backup your real data when switching to example data
-- Preserve both real and example data sets
-- Prevent accidental data loss
-- Make it safer to commit changes
-
-> **Note**: Always switch to example data before committing changes to ensure no sensitive data is accidentally committed.
-
-## Features in Detail
-
-### 1. Salary Dashboard
-- Real-time salary metrics
-- Department-wise breakdown
-- Yearly projections
-- Tax calculations (22% rate)
-
-### 2. Employee Management
-- Add/Edit/Delete employees
-- Bulk operations support
-- Data validation
-- Automatic persistence
-
-### 3. Data Visualization
-- Multiple chart types
-- Interactive tooltips
-- Responsive layouts
-- Custom color themes
-
-### 4. Theme Support
-- Light/Dark mode
-- System preference detection
-- Custom color palette
-- Consistent styling
+Run tests with:
+```bash
+npm test                 # Run all tests
+npm run test:watch      # Run tests in watch mode
+npm run test:coverage   # Generate coverage report
+```
 
 ## API Endpoints
 
@@ -217,6 +268,37 @@ The backend server provides the following API endpoints:
 - `POST /api/employees` - Create new employee
 - `PUT /api/employees/:id` - Update employee
 - `DELETE /api/employees/:id` - Delete employee
+
+### Authentication
+- `POST /api/auth/login` - User login
+- `POST /api/auth/logout` - User logout
+- `GET /api/auth/user` - Get current user
+
+### Recruitment
+- `GET /api/recruitment/positions` - List positions
+- `POST /api/recruitment/positions` - Create position
+- `GET /api/recruitment/metrics` - Get recruitment metrics
+- `GET /api/recruitment/onboarding/:id` - Get onboarding status
+
+### Dashboard
+- `GET /api/dashboard/custom` - Get custom dashboard
+- `POST /api/dashboard/generate` - Generate AI dashboard
+- `GET /api/dashboard/org-structure` - Get org structure
+
+## Deployment
+
+The application is configured for deployment on Vercel:
+
+1. Connect your repository to Vercel
+2. Configure environment variables
+3. Deploy using the `vercel.json` configuration
+
+## Scripts
+
+- `scripts/check-sensitive-files.cjs` - Prevent committing sensitive data
+- `scripts/migrate-to-supabase.ts` - Database migration utility
+- `scripts/setup-hooks.sh` - Set up git hooks
+- `scripts/switch-data.sh` - Switch between real and demo data
 
 ## Contributing
 
@@ -229,3 +311,72 @@ The backend server provides the following API endpoints:
 ## License
 
 This project is licensed to Ather Labs.
+
+## ⚠️ Important: Handling Sensitive Data
+
+This repository is configured to prevent accidental commits of sensitive data:
+
+- Never commit real salary or HR data
+- Use example files for development
+- Run `./scripts/switch-data.sh example` before committing
+- Check `.gitignore` and `scripts/check-sensitive-files.cjs` for protected patterns
+
+### Setting Up Development Data
+
+1. Copy the example file:
+   ```bash
+   cp src/salary.example.json src/salary.json
+   ```
+
+2. Update with your development data following the same structure
+
+3. Never commit the actual salary.json file
+
+## Testing Architecture
+
+The project follows a comprehensive testing strategy:
+
+### Test Structure
+```
+services/__tests__/
+├── docs/
+│   ├── AI_DASHBOARD_FEATURE.md
+│   ├── FILTERING_TESTS.md
+│   ├── IMPLEMENTATION_SUMMARY.md
+│   ├── MOCK_IMPLEMENTATIONS.md
+│   └── TEST_ARCHITECTURE.md
+├── integration/
+│   └── dashboard-generation.test.tsx
+├── ai-filtering.test.ts
+├── ai.test.ts
+└── dashboard.test.ts
+```
+
+### Test Categories
+
+1. **Unit Tests**
+   - Component rendering and behavior
+   - Service function logic
+   - Utility function validation
+   - Type checking and validation
+
+2. **Integration Tests**
+   - Dashboard generation workflow
+   - Authentication flow
+   - API endpoint integration
+   - Database operations
+
+3. **AI Feature Tests**
+   - Chat response accuracy
+   - Dashboard insight generation
+   - Data filtering precision
+   - Pattern recognition reliability
+
+### Test Documentation
+
+Detailed test documentation is available in the `services/__tests__/docs/` directory:
+- `AI_DASHBOARD_FEATURE.md` - AI dashboard generation testing
+- `FILTERING_TESTS.md` - Data filtering test cases
+- `IMPLEMENTATION_SUMMARY.md` - Overall test implementation guide
+- `MOCK_IMPLEMENTATIONS.md` - Mock data and service setup
+- `TEST_ARCHITECTURE.md` - Test structure and best practices
